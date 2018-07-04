@@ -1,0 +1,48 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+#define MAX_SIZE 101  //for maximum size of array
+
+char Array[MAX_SIZE];    //To define stack using Array
+int top = -1;                //to access the top most variable in stack
+
+void push(char);
+
+void pop();
+
+main()
+{	
+	int i = 0;				//loop variable	
+	char Arr[100];//	array to enter a string
+	std::cout<<"\nEnter a string\n";
+	gets(Arr);
+	while(Arr[i] != '\0')
+	{
+		push(Arr[i]);
+		i++;
+	}
+	for(i = top;i >= 0;i--)
+	{
+		pop();
+	}
+	
+	return 0;
+}
+
+void push(char letter)
+{
+	if(top == MAX_SIZE - 2)
+	{
+		std::cout<<"\nError:Overflow\n";
+	}
+	else
+	{
+		Array[++top] = letter;
+	}	
+
+}
+
+void pop()
+{
+	std::cout<<Array[top--];
+}
